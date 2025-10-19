@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro de Clientes</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="nav-links">
+      <a th:href="@{/clientes/formulario}">Cadastro</a>
+      <a th:href="@{/clientes/listar}">Listagem</a>
+    </div>
+  </div>
+
+  <div class="page-layout">
+
+    <div class="sidebar">
+      <ul>
+        <li>
+          <img th:src="@{/img/clientes.png}" alt="Clientes">
+          <a th:href="@{/clientes/listar}">Clientes</a>
+        </li>
+        <li>
+          <img th:src="@{/img/produtos.png}" alt="Produtos">
+          <a th:href="@{/produtos/listar}">Produtos</a>
+        </li>
+        <li>
+          <img th:src="@{/img/vendas.png}" alt="Vendas">
+          <a th:href="@{/vendas/listar}">Vendas</a>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="content">
+      <div class="container">
+        <h1 th:text="${cliente.id == null} ? 'Cadastro de Clientes' : 'Editar Cliente'"></h1>
+
+        <form th:action="@{/clientes/salvar}" th:object="${cliente}" method="post">
+          <input type="hidden" th:field="*{id}" />
+
+          <label>Nome:</label>
+          <input type="text" th:field="*{nome}" required />
+
+          <label>CPF:</label>
+          <input type="text" th:field="*{cpf}" required />
+
+          <label>Telefone:</label>
+          <input type="text" th:field="*{telefone}" required />
+
+          <label>Endereço:</label>
+          <input type="text" th:field="*{endereco}" required />
+
+          <button type="submit">Salvar</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
