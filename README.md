@@ -96,7 +96,6 @@ Exemplo de saída do Socket:
  
  ❌ Conexão encerrada
 
-
 ---
 
 ## 🗄️ **Criptografia no Banco de Dados**
@@ -127,26 +126,34 @@ docker run --name mysql-supermarket ^
 ## ▶️ Como Executar o Projeto
 
 ### 1) Clonar o repositório
+```bash
 git clone https://github.com/codecrazes/CP5_JAVA_part1.git
 cd CP5_JAVA_part1
+```
 
 ### 3) Rodar a aplicação backend
+```bash
 mvn spring-boot:run
+```
 
 ### 4) Testar no navegador
-Abra:
+
 http://localhost:8082/clientes/formulario
 
-### 5) Exemplo de cadastro (com o print):
+### 5) Exemplo de cadastro:
+
+```bash
 Nome: Maria  
 CPF: 777.777.777-77  
 Telefone: 22222222222  
 Endereço: rua da flores
+```
 
-Executar o Servidor Socket
+### Executar o Servidor Socket
 ServidorTCP.iniciar();
 
-Executar o Cliente Socket
+### Executar o Cliente Socket
+
 ClienteTCP.enviarMensagem("Olá servidor");
 
 
