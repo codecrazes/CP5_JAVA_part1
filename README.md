@@ -28,7 +28,7 @@ O sistema possui **duas camadas independentes**, ambas usando RSA:
 
 ## 🔒 **RSA Implementado (manual)**
 
-Foram escolhidos os seguintes valores (conforme planilha):
+Foram escolhidos os seguintes valores:
 
 | Valor | Resultado |
 |--------|-----------|
@@ -62,13 +62,18 @@ Mensagem testada: **"A"**
 
 ## 🔁 **Handshake no Socket TCP**
 
-Fluxo da troca de chaves:
+### Fluxo da troca de chaves:
 
 Cliente → envia chave pública (e, n)
+
 Servidor → envia chave pública (e, n)
+
 Cliente → envia mensagem criptografada com chave pública do Servidor
+
 Servidor → descriptografa com chave privada
+
 Servidor → envia resposta criptografada com chave pública do Cliente
+
 Cliente → descriptografa a resposta
 
 ---
@@ -77,13 +82,19 @@ Cliente → descriptografa a resposta
 
 Exemplo de saída do Socket:
 
-✅ Servidor aguardando conexão
-🔑 Chave pública do Cliente recebida: (3, 391)
-🔑 Chave pública do Servidor enviada: (3, 391)
-📥 Mensagem recebida (cifrada): [143, ...]
-📥 Mensagem decriptada: Olá servidor
-📤 Resposta enviada (cifrada)
-❌ Conexão encerrada
+ ✅ Servidor aguardando conexão
+ 
+ 🔑 Chave pública do Cliente recebida: (3, 391)
+ 
+ 🔑 Chave pública do Servidor enviada: (3, 391)
+ 
+ 📥 Mensagem recebida (cifrada): [143, ...]
+ 
+ 📥 Mensagem decriptada: Olá servidor
+ 
+ 📤 Resposta enviada (cifrada)
+ 
+ ❌ Conexão encerrada
 
 
 ---
@@ -95,7 +106,7 @@ Exemplo de saída do Socket:
 
 📌 *Print do banco criptografado:*
 
-![Banco de Dados Criptografado](./banco de dados.png)
+![Banco de Dados Criptografado](./banco%20de%20dados.png)
 
 ---
 
@@ -115,6 +126,28 @@ docker run --name mysql-supermarket ^
 
 ## ▶️ Como Executar o Projeto
 
+### 1) Clonar o repositório
+git clone https://github.com/codecrazes/CP5_JAVA_part1.git
+cd CP5_JAVA_part1
+
+### 3) Rodar a aplicação backend
+mvn spring-boot:run
+
+### 4) Testar no navegador
+Abra:
+http://localhost:8082/clientes/formulario
+
+### 5) Exemplo de cadastro (com o print):
+Nome: Maria  
+CPF: 777.777.777-77  
+Telefone: 22222222222  
+Endereço: rua da flores
+
+Executar o Servidor Socket
+ServidorTCP.iniciar();
+
+Executar o Cliente Socket
+ClienteTCP.enviarMensagem("Olá servidor");
 
 
 
